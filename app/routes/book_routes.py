@@ -41,10 +41,7 @@ def get_all_books():
 
 @books_bp.get("/<book_id>")
 def get_one_book(book_id):
-    query = db.select(Book).where(Book.id == book_id)
-    book = db.session.scalar(query)
-
-   # book = validate_book(book_id)
+    book = validate_book(book_id)
 
     return {
         "id": book.id,
